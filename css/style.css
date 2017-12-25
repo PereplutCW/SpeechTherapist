@@ -32,20 +32,20 @@ a {
 
 .page-header__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 15px 25px;
+  padding: 25px;
+  padding-bottom: 30px;
 }
 
 @media (min-width: 525px) {
   .page-header__top {
-    flex-direction: row;
     justify-content: space-between;
   }
 }
 
 .logo {
-  margin-bottom: 15px;
+  margin-right: 45px;
   
   font-family: "PT Serif", serif;
   font-weight: 400;
@@ -63,6 +63,7 @@ a {
 }
 
 .contact {
+  display: none;
   box-sizing: border-box;
   padding-left: 35px;
   
@@ -104,15 +105,21 @@ a {
 }
 
 .page-header__label {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  right: 25px;
   
   display: block;
-  padding: 10px 25px;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
   
+  font-size: 0;
   
-  background-color: #242D36;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  background-image: url("../img/icon_burger.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   
   cursor: pointer;
 }
@@ -123,26 +130,8 @@ a {
   }
 }
 
-.page-header__label::after {
-  content: "";
-  
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  
-  display: table;
-  width: 15px;
-  height: 15px;
-  
-  border-bottom: 2px solid #fff;
-  border-right: 2px solid #fff;
-  
-  transform: rotate(45deg);
-}
-
-#burger:checked ~ .page-header__label::after {
-  top: 20px;
-  transform: rotate(225deg);
+#burger:checked ~ .page-header__label {
+  background-image: url("../img/icon_cross.png");
 }
 
 .main-menu {
