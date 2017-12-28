@@ -1,6 +1,8 @@
 /* Общие стили */
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   
@@ -36,14 +38,11 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-width: 1250px;
   padding: 25px;
   padding-bottom: 30px;
-}
-
-@media (min-width: 600px) {
-  .page-header__top {
-    justify-content: space-between;
-  }
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .page-header__top::after {
@@ -71,44 +70,6 @@ a {
   color: #F0F1F3;
 }
 
-.contact {
-  display: none;
-  box-sizing: border-box;
-  padding-left: 35px;
-  
-  text-align: left;
-  
-  font-size: 16px;
-}
-
-.contact__phone,
-.contact__email {
-  position: relative;
-}
-
-.contact__phone {
-  margin-bottom: 5px;
-}
-
-.contact__email {
-  display: block;
-}
-
-.contact__phone::before,
-.contact__email::before {
-  content: "";
-  
-  position: absolute;
-  left: -30px;
-  top: 2px;
-  
-  display: table;
-  width: 20px;
-  height: 20px;
-  
-  background-color: #fff;
-}
-
 .page-header__checkbox {
   display: none;
 }
@@ -131,12 +92,6 @@ a {
   background-position: center;
   
   cursor: pointer;
-}
-
-@media (min-width: 600px) {
-  .page-header__label {
-    display: none;
-  }
 }
 
 #burger:checked ~ .page-header__label {
@@ -171,25 +126,14 @@ a {
   display: block;
 }
 
-@media (min-width: 600px) {
-  .main-menu {
-    display: block;
-  }
-}
-
 .main-menu__list {
-  margin: 0;
+  max-width: 1250px;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   flex-direction: column;
-  
+    
   list-style: none;
-}
-
-@media (min-width: 600px) {
-  .main-menu__list {
-    flex-direction: row;
-  }
 }
 
 .main-menu__link { 
@@ -209,11 +153,38 @@ a {
   color: #fff;
 }
 
+/* WIDTH: 600px */
+
+@media (min-width: 600px) {
+  .page-header__top {
+    justify-content: flex-start;    
+  }
+  
+  .page-header__label {
+    display: none;
+  }
+  
+  .main-menu {
+    display: block;
+  }
+  
+  .main-menu__list {
+    flex-direction: row;
+  }
+}
+
 /* MAIN */
 
+/* В IE не отображается padding-top у .page-main */
+
 .page-main {
+  flex-grow: 1;
+  max-width: 1250px;
+  margin: 0 auto;
   padding-top: 45px;
 }
+
+/* WIDTH: 900px */
 
 @media (min-width: 900px) {
   .page-main {
@@ -225,13 +196,6 @@ a {
 
 .articles {
   box-sizing: border-box;
-}
-
-@media (min-width: 600px) {
-  .articles {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
 }
 
 .article {  
@@ -296,13 +260,6 @@ a {
   color: #F45145;
 }
 
-@media (min-width: 600px) {
-  .article__title {
-    font-size: 30px;
-  line-height: 30px;
-  }
-}
-
 .article__description {
   margin: 0;
   
@@ -332,6 +289,20 @@ a {
   background-position: center;
 }
 
+/* WIDTH: 600px */
+
+@media (min-width: 600px) {
+  .articles {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
+  .article__title {
+    font-size: 30px;
+    line-height: 30px;
+  }
+}
+
 /* Information */
 
 .information {
@@ -340,11 +311,6 @@ a {
   color: #242D36;
 }
 
-@media (min-width: 900px) {
-  .information {
-    max-width: 325px;
-  }
-}
 .about {
   display: flex;
   flex-direction: column;
@@ -458,3 +424,99 @@ a {
   color: #fa8a82;
 }
 
+/* WIDTH: 900px */
+
+@media (min-width: 900px) {
+  .information {
+    max-width: 325px;
+  }
+}
+
+/* FOOTER */
+
+.page-footer {
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  
+  color: #fff;
+  
+  background-color: #242D36;
+}
+
+.page-footer::before {
+  content: "";
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  display: table;
+  width: 100%;
+  height: 5px;
+  
+  background-color: #1E252D;
+ }
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.contacts__phone,
+.contacts__email {
+  position: relative;
+  
+  padding-left: 35px;
+}
+
+.contacts__phone {
+  margin-bottom: 5px;
+}
+
+.contacts__phone::before,
+.contacts__email::before {
+  content: "";
+  
+  position: absolute;
+  left: 0;
+  top: 4px;
+  
+  display: table;
+  width: 20px;
+  height: 20px;
+  
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contacts__phone::before {
+  background-image: url(../img/icon_phone.png);
+}
+
+.contacts__email::before {
+  background-image: url(../img/icon_mail.png);
+}
+
+/* WIDTH: 600px */
+
+@media (min-width: 600px) {
+  .page-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .contacts {
+    flex-direction: row;
+    justify-content: ;
+  }
+  
+  .contacts__phone {
+    margin-right: 45px;
+    margin-bottom: 0;
+  }
+}
