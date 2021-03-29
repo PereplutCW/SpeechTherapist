@@ -1,4 +1,4 @@
 # Speech Therapist
-Rural speech therapist's blog
+Rural Speech Therapist's blog
 
 [Speech Therapist](https://pereplutcw.github.io/SpeechTherapist/ "Speech Therapist")
